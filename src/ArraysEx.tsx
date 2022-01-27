@@ -11,16 +11,13 @@ export function ArraysEx() {
     <div>
       <h1>Arrays Exercise</h1>
       <h2>Colors</h2>
+
       <ol>
-        <li>
-          <h3>{Colors[0]}</h3>
-        </li>
-        <li>
-          <h3>{Colors[1]}</h3>
-        </li>
-        <li>
-          <h3>{Colors[2]}</h3>
-        </li>
+        {Colors.map((color, index) => (
+          <li key={index}>
+            <h3>{color}</h3>
+          </li>
+        ))}
         <li>
           <h3 {...addColor}>{addNewColor}</h3>
         </li>
@@ -65,9 +62,4 @@ export function ArraysEx() {
 }
 
 //   return (
-//     <ul>
-//       {Colors.colors.map((color, index) => (
-//         <li key={index}> {color.name} </li>
-//       ))}
-//     </ul>
 //   );
