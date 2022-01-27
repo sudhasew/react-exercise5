@@ -1,7 +1,25 @@
 import { useState } from "react";
-
+import { Pet } from "./Pet";
+import "./ArrayEx.css";
 export function ArraysEx() {
   const Colors = ["red", "orange", "yellow"];
+  const [pets, setNewPets] = useState<Pet[]>([
+    {
+      name: "Fluffer Nutter",
+      type: "cat",
+      id: 1,
+    },
+    {
+      name: "Mocha",
+      type: "dog",
+      id: 2,
+    },
+    {
+      name: "sophie",
+      type: "hamster",
+      id: 3,
+    },
+  ]);
   const [addNewColor, setAddNewColor] = useState("");
   function addColor(color: string): void {
     Colors.push(color);
@@ -28,15 +46,34 @@ export function ArraysEx() {
       <button onClick={() => setAddNewColor("Violet")}>Add Violet</button>
 
       <h1>Pets</h1>
-
-      <table>
+      <div>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+        </tr>
+      </div>
+      <td>
+        {pets.map((pet) => (
+          <tr key={pet.id}>
+            <tr>{pet.name}</tr>
+          </tr>
+        ))}
+      </td>
+      <td>
+        {pets.map((pet) => (
+          <tr key={pet.id}>
+            <td>{pet.type}</td>
+          </tr>
+        ))}
+      </td>
+      {/* <table>
         <tr>
           <th>Name</th>
           <th>Type</th>
           <th>Action</th>
         </tr>
         <tr>
-          <td>Fluffer Nutters</td>
+          <td>Fiffer Nutter</td>
           <td>cat</td>
           <td>
             <button>Delete</button>
@@ -56,10 +93,7 @@ export function ArraysEx() {
             <button>Delete</button>
           </td>
         </tr>
-      </table>
+      </table> */}
     </div>
   );
 }
-
-//   return (
-//   );
